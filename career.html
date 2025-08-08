@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Career Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+
+        .navbar {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .title {
+            flex: 1;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 30px auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        input,
+        select,
+        button {
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            width: 100%;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #result {
+            background-color: #f0f8ff;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 5px solid #007bff;
+        }
+
+        .video-section {
+            margin-top: 30px;
+            background-color: #fff3cd;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #ffc107;
+        }
+
+        iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .audio-btn {
+            margin-top: 10px;
+            background-color: #28a745;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <a href="home.html">⬅ Back</a>
+        <div class="title">Career Page</div>
+        <div style="width: 60px;"></div>
+    </div>
+
+    <div class="container">
+        <h2>AI Career Assistant 🤖</h2>
+        <label for="interest">Enter your career interest:</label>
+        <input type="text" id="interest" placeholder="e.g. Doctor, Engineer, Artist...">
+
+        <label for="language">Select your language:</label>
+        <select id="language">
+            <option value="english">English</option>
+            <option value="hindi">Hindi</option>
+            <option value="maithili">Maithili</option>
+            <option value="bhojpuri">Bhojpuri</option>
+        </select>
+
+        <button onclick="suggestCareer()">Find Career Options</button>
+
+        <div id="result"></div>
+        <button class="audio-btn" id="speakBtn" style="display:none;" onclick="speakSuggestion()">🔊 Hear
+            Suggestion</button>
+
+        <div class="video-section" id="video-section" style="display:none;">
+            <h3>📺 Video Explanation</h3>
+            <iframe id="careerVideo" src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <script>
+        let currentSuggestion = "";
+
+        function suggestCareer() {
+            const interest = document.getElementById("interest").value.toLowerCase();
+            const language = document.getElementById("language").value;
+            const resultDiv = document.getElementById("result");
+            const videoSection = document.getElementById("video-section");
+            const videoFrame = document.getElementById("careerVideo");
+            const speakBtn = document.getElementById("speakBtn");
+
+            if (!interest) {
+                resultDiv.innerHTML = "<strong>Please enter a career interest.</strong>";
+                videoSection.style.display = "none";
+                speakBtn.style.display = "none";
+                return;
+            }
+
+            let response = {};
+            let videoURL = "";
+
+            if (interest.includes("doctor")) {
+                response = {
+                    english: "You can become a General Physician, Surgeon, or Specialist. Start with NEET exam preparation.",
+                    hindi: "आप एक जनरल फिजिशियन, सर्जन या विशेषज्ञ बन सकते हैं। NEET परीक्षा की तैयारी करें।",
+                    maithili: "अहाँ General Physician, Surgeon या Specialist बनि सकै छी। NEET परीक्षा लेल तैयारी करू।",
+                    bhojpuri: "तू जनरल डॉक्टर, सर्जन या स्पेशलिस्ट बन सकेला। NEET के तैयारी करी।"
+                };
+                videoURL = "https://www.youtube.com/embed/n9j8phI7fZg";
+            } else if (interest.includes("engineer")) {
+                response = {
+                    english: "You can pursue Computer, Civil, or Mechanical Engineering. Prepare for JEE or state exams.",
+                    hindi: "आप कंप्यूटर, सिविल या मैकेनिकल इंजीनियरिंग कर सकते हैं। JEE या राज्य परीक्षा की तैयारी करें।",
+                    maithili: "अहाँ Computer, Civil या Mechanical Engineering करी सकै छी। JEE या राज्य परीक्षा लेल तैयारी करू।",
+                    bhojpuri: "तू कंप्युटर, सिविल या मेकेनिकल इंजीनियर बन सकेला। JEE या स्टेट एग्जाम के तैयारी करी।"
+                };
+                videoURL = "https://www.youtube.com/embed/zsP1zHtsP0Q";
+            } else {
+                response = {
+                    english: "Explore diploma courses, apprenticeships, or government exams based on your interest.",
+                    hindi: "अपनी रुचि के आधार पर डिप्लोमा कोर्स, अप्रेंटिसशिप या सरकारी परीक्षाएं चुनें।",
+                    maithili: "रूचिक अनुसार डिप्लोमा कोर्स, अप्रेंटिस या सरकारी परीक्षा देखू।",
+                    bhojpuri: "रुचि अनुसार डिप्लोमा, ट्रेनिंग या सरकारी नौकरी वाला रास्ता चुनी।"
+                };
+                videoURL = "https://www.youtube.com/embed/f2LZlJybB5k";
+            }
+
+            currentSuggestion = response[language]; // Store for speech
+            resultDiv.innerHTML = `<strong>Suggestion:</strong><br>${currentSuggestion}`;
+            videoFrame.src = videoURL;
+            videoSection.style.display = "block";
+            speakBtn.style.display = "inline-block";
+
+            speakSuggestion(); // Auto play voice
+        }
+
+        function speakSuggestion() {
+            if ('speechSynthesis' in window && currentSuggestion) {
+                const utterance = new SpeechSynthesisUtterance(currentSuggestion);
+                speechSynthesis.speak(utterance);
+            } else {
+                alert("Sorry, your browser doesn't support voice.");
+            }
+        }
+    </script>
+
+</body>
+
+</html>

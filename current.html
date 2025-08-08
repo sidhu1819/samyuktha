@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>📈 Current Trends</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        nav {
+            background-color: #004080;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-title {
+            flex: 1;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .home-button {
+            background-color: white;
+            color: #004080;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .home-button:hover {
+            background-color: #cce5ff;
+        }
+
+        .scrolling-news {
+            background: #cce5ff;
+            color: #004080;
+            padding: 10px;
+            overflow: hidden;
+            white-space: nowrap;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-weight: bold;
+        }
+
+        .scrolling-news span {
+            display: inline-block;
+            padding-left: 100%;
+            animation: scroll-left 12s linear infinite;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #004080;
+            text-align: center;
+            margin-bottom: 30px;
+            animation: fadeIn 1s ease;
+        }
+
+        .news {
+            background-color: #d1ecf1;
+            padding: 12px;
+            border-left: 6px solid #0c5460;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            animation: fadeInUp 1.5s ease;
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 18px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h3 {
+            color: #004080;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            padding-left: 18px;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+
+        li:hover {
+            transform: translateX(8px);
+            color: #003366;
+        }
+
+        blockquote {
+            background-color: #fff3cd;
+            padding: 15px 20px;
+            border-left: 6px solid #856404;
+            margin: 0;
+            font-style: italic;
+        }
+
+        a {
+            color: #004080;
+            text-decoration: underline;
+        }
+
+        a:hover {
+            color: #00264d;
+        }
+
+        /* Animations */
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+            }
+
+            .nav-title {
+                text-align: center;
+                margin-top: 10px;
+            }
+
+            .home-button {
+                align-self: flex-start;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html"><button class="home-button">← Home</button></a>
+        <div class="nav-title">📈 Current Trends for Students</div>
+    </nav>
+
+    <!-- News Ticker -->
+    <div class="scrolling-news">
+        <span>📰 Bihar to integrate AI tools in classrooms • ISRO's essay competition for students • CUET 2025
+            registration soon!</span>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h2>What's New in Education?</h2>
+
+        <div class="news">
+            <strong>🔔 Update:</strong> AI-based learning is being introduced in Bihar government schools!
+        </div>
+
+        <!-- Info Cards -->
+        <div class="cards">
+            <div class="card">
+                <h3>🔬 Trending in Education</h3>
+                <ul>
+                    <li>📚 NEP 2020 focuses on conceptual learning, not just memorization</li>
+                    <li>🎓 Skill-based courses introduced in Class 9 & 11</li>
+                    <li>🧪 Virtual science labs allow students to experiment online</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>🌐 Useful Tech Tools</h3>
+                <ul>
+                    <li>🤖 ChatGPT, Khan Academy, and Byju’s help students understand tough concepts</li>
+                    <li>💻 Free coding platforms: <a href="https://scratch.mit.edu" target="_blank">Scratch</a>, <a
+                            href="https://www.w3schools.com" target="_blank">W3Schools</a></li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>🎯 Motivation Corner</h3>
+                <blockquote>
+                    "Education is the passport to the future, for tomorrow belongs to those who prepare for it today."
+                    – Malcolm X
+                </blockquote>
+            </div>
+
+            <div class="card">
+                <h3>📅 Upcoming Exams & Events</h3>
+                <ul>
+                    <li>🏆 NTSE Scholarship – Apply now (10th class students)</li>
+                    <li>📘 CUET 2025 – Application expected in November</li>
+                    <li>🚀 ISRO Space Essay Contest – Deadline: August 30</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

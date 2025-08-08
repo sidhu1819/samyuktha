@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🎮 Educational Game Portal</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f2f6ff;
+        }
+
+        nav {
+            background-color: #003366;
+            color: white;
+            padding: 15px 20px;
+            font-size: 20px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            background: #0055aa;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #003366;
+            margin-top: 30px;
+            animation: fadeIn 1s ease;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .game-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .game-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .game-card h3 {
+            margin: 0;
+            padding: 15px;
+            font-size: 18px;
+            color: #003366;
+            text-align: center;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        🎮 Educational Game Portal
+        <a href="index.html">⬅ Back to Home</a>
+    </nav>
+
+    <h1>Pick a Game to Play</h1>
+
+    <div class="gallery">
+        <div class="game-card">
+            <img src="math puzzle.png" alt="Math Puzzle">
+            <h3>🧠 Math Puzzle</h3>
+        </div>
+
+        <div class="game-card">
+            <img src="word puzzle.jpeg" alt="Word Builder">
+            <h3>🔤 Word Builder</h3>
+        </div>
+
+        <div class="game-card">
+            <img src="memory match.jpeg" alt="Memory Game">
+            <h3>🧩 Memory Match</h3>
+        </div>
+
+        <div class="game-card">
+            <img src="quiz master.png" alt="Quiz Master">
+            <h3>❓ Quiz Master</h3>
+        </div>
+
+        <div class="game-card">
+            <img src="suduko.jpeg" alt="Sudoku Challenge">
+            <h3>🔢 Sudoku Challenge</h3>
+        </div>
+
+        <div class="game-card">
+            <img src="crossword puzzle.jpeg" alt="Crossword">
+            <h3>✍️ Crossword Fun</h3>
+        </div>
+    </div>
+
+</body>
+
+</html>
